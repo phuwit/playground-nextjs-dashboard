@@ -1,25 +1,29 @@
 import { Suspense } from 'react';
 
-import { CardsSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
+import {
+  CardsSkeleton,
+  LatestInvoicesSkeleton,
+  RevenueChartSkeleton,
+} from '@/app/ui/skeletons';
 import CardWrapper, { Card } from '@/app/ui/dashboard/cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { lusitana } from '@/app/ui/fonts';
- 
+
 export default async function Page() {
-    // const revenuePromise = fetchRevenue();
-    // const latestInvoicesPromise = fetchLatestInvoices();
-    // const cardDataPromise = fetchCardData();
+  // const revenuePromise = fetchRevenue();
+  // const latestInvoicesPromise = fetchLatestInvoices();
+  // const cardDataPromise = fetchCardData();
 
-    // const allData = await Promise.all([
-    //   revenuePromise,
-    //   latestInvoicesPromise,
-    //   cardDataPromise
-    // ])
+  // const allData = await Promise.all([
+  //   revenuePromise,
+  //   latestInvoicesPromise,
+  //   cardDataPromise
+  // ])
 
-    // const revenue = allData[0];
-    // const latestInvoices = allData[1];
-    // const cardData = allData[2];
+  // const revenue = allData[0];
+  // const latestInvoices = allData[1];
+  // const cardData = allData[2];
 
   return (
     <main>

@@ -18,7 +18,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     } else {
       params.delete('query');
     }
-    replace(`${pathName}?${params.toString()}`)
+    replace(`${pathName}?${params.toString()}`);
   }, 300);
 
   return (
@@ -30,7 +30,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
         className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
         onChange={(e) => {
-          handleSearch(e.target.value)
+          handleSearch(e.target.value);
         }}
         defaultValue={searchParams.get('query')?.toString()}
       />

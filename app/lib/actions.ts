@@ -10,15 +10,13 @@ import { custom, z } from 'zod';
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string({
-    invalid_type_error: 'Please select a customer.'
+    invalid_type_error: 'Please select a customer.',
   }),
-  amount: z.coerce
-    .number()
-    .gt(0, {
-      message: 'Please enter amount greater than 0'
+  amount: z.coerce.number().gt(0, {
+    message: 'Please enter amount greater than 0',
   }),
   status: z.enum(['pending', 'paid'], {
-    invalid_type_error: 'Please select an invoice status'
+    invalid_type_error: 'Please select an invoice status',
   }),
   date: z.string(),
 });
@@ -31,9 +29,9 @@ export type State = {
     customerId?: string[];
     amount?: string[];
     status?: string[];
-  }
-  message?: string | null
-}
+  };
+  message?: string | null;
+};
 
 export async function createInvoice(prevState: State, formData: FormData) {
   const validatedFields = CreateInvoice.safeParse({
@@ -45,7 +43,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to create invoice.'
+      message: 'Missing Fields. Failed to create invoice.',
     };
   }
 
@@ -69,7 +67,11 @@ export async function createInvoice(prevState: State, formData: FormData) {
   redirect('/dashboard/invoices');
 }
 
-export async function updateInvoice(prevState: State, id: string, formData: FormData) {
+export async function updateInvoice(
+  prevState: State,
+  id: string,
+  formData: FormData,
+) {
   const validatedFields = CreateInvoice.safeParse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -79,7 +81,7 @@ export async function updateInvoice(prevState: State, id: string, formData: Form
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to create invoice.'
+      message: 'Missing Fields. Failed to create invoice.',
     };
   }
 
@@ -117,7 +119,8 @@ export async function deleteInvoice(id: string) {
 
 export async function authenticate(
   prevState: string | undefined,
-  formData: FormData) {
+  formData: FormData,
+) {
   try {
     await signIn('credentials', formData);
   } catch (error) {
